@@ -10,6 +10,8 @@
 
 .gitignore 에 .env.development를 추가해주세요.
 
+    $ npm i
+
 ## Running the project
 
 NODE_ENV = 'development' 으로 실행됩니다.
