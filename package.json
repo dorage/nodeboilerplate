@@ -3,7 +3,7 @@
     "main": "index.js",
     "scripts": {
         "start": "nodemon --exec cross-env NODE_ENV=development babel-node src/index.js",
-        "start-production": "cross-env NODE_ENV=production babel-node src/index.js"
+        "production": "cross-env NODE_ENV=production babel-node src/index.js"
     },
     "dependencies": {
         "body-parser": "^1.19.0",
