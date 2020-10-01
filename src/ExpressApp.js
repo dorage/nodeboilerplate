@@ -2,10 +2,13 @@ import express from 'express';
 import helmet from 'helmet';
 import bodyParser from 'body-parser';
 import session from 'express-session';
+import swaggerUI from 'swagger-ui-express';
 
 import './db';
-import mainRouter from './router/main';
-import { configs } from './config';
+import mainRouter from './routers/main';
+import { configs } from './configs';
+import morgan from 'morgan';
+import { swaggerDocument } from './configs/swagger';
 
 const app = express();
 
@@ -19,7 +22,9 @@ app.use(
         saveUninitialized: false,
     }),
 );
+app.use(morgan('dev'));
 
 app.use(mainRouter);
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
 export default app;

@@ -1,6 +1,6 @@
-import './config';
+import './configs';
 import app from './ExpressApp';
-import { configs } from './config';
+import { configs } from './configs';
 
 const port = configs.port;
 
