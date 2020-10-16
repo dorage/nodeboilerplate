@@ -8,7 +8,7 @@ import './db';
 import mainRouter from './routers/main';
 import { configs } from './configs';
 import morgan from 'morgan';
-import { swaggerDocument } from './configs/swagger';
+import { swaggerSpec } from './configs/swagger';
 
 const app = express();
 
@@ -25,6 +25,10 @@ app.use(
 app.use(morgan('dev'));
 
 app.use(mainRouter);
-app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
+app.use(
+    '/api-docs',
+    swaggerUI.serve,
+    swaggerUI.setup(swaggerSpec, { explorer: true }),
+);
 
 export default app;
